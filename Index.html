@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online Tick!</title>
+    <Link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+    <header class="header">
+    <!--Primera división principal del header-->
+        <div class="menu container">
+            <a href="#" class="Logo">Tick!</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="imagenes/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Producto</a></li>
+                    <li><a href="#">Contacto </a></li>
+                </ul>
+
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img id="img-carrito" src="imagenes/car.svg" alt="car">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito">vaciar carrito</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!--Segunda división principal del header-->
+
+        <div class="header-content container">
+            <div class="header-txt">
+                <span>Bienvenido a nuestra tienda</span>
+                <h1>Ofertas especiales</h1>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora corrupti exercitationem voluptatibus perferendis enim et accusantium expedita totam quia maxime architecto aliquid obcaecati, officiis iure iusto aperiam illum quos ullam.
+
+                </p>
+                <div class="butons">
+                    <a href="#" class="btn-1">Información</a>
+                    <a href="#" class="btn-1">leer mas</a>
+
+                </div>
+            </div>
+
+            <div class="header-img">
+                <img src="imagenes/Bag.png" alt="">
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--Sección de ofertas-->
+
+ <section class="oferts container">
+
+    <div class="ofert-1 b1">
+        <div class="ofert-txt">
+            <h3> Lorem impsum</h3>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="imagenes/S1.png" alt="">
+        </div>
+    </div>
+
+     <div class="ofert-1 b2">
+        <div class="ofert-txt">
+            <h3> Lorem impsum</h3>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="imagenes/S2.png" alt="">
+        </div>
+    </div>
+
+     <div class="ofert-1 b3">
+        <div class="ofert-txt">
+            <h3> Lorem impsum</h3>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="imagenes/S3.png" alt="">
+        </div>
+    </div>
+
+ </section>
+ <!--Sección final de ofertas-->
+
+ <!--Se abre sección de Productos-->
+ 
+
+    <Main class="products container">
+
+        <h2>Productos</h2>
+
+        <div class="box-container" id="lista-1">
+            <!--Producto 1-->
+            <div class="box">
+                <img src="imagenes/Pr1.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Camisa sencilla de cuello redondo</h3>
+                    <p>Color beige arena</p>
+                    <p class="Precio">$35.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 2-->
+            <div class="box">
+                <img src="imagenes/Pr2.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Camisa básica de cuello redondo con camisa de manga corta con botones y cuello sport</h3>
+                    <p>Color negro (encima) y blanco (interior) </p>
+                    <p class="Precio">$50.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 3-->
+             <div class="box">
+                <img src="imagenes/Pr3.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Camisa manga corta con cuello camp</h3>
+                    <p>Color gris oscuro (encima) y blanco (interior) </p>
+                    <p class="Precio">$65.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 4-->
+             <div class="box">
+                <img src="imagenes/Pr4.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Gorra tipo béisbol lisa</h3>
+                    <p>Color blanco </p>
+                    <p class="Precio">$25.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 5-->
+            <div class="box">
+                <img src="imagenes/Pr5.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Gorra tipo béisbol lisa</h3>
+                    <p>Color negro</p>
+                    <p class="Precio">$25.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 6-->
+            <div class="box">
+                <img src="imagenes/Pr6.png" alt="">
+                <div class="product-txt">
+                    <h3>Vino Chic Set</h3>
+                    <p>Conjunto de blusa satinada vino manga larga y pantalón palazzo negro tiro alto con bolso bandolera negro con cadena dorada</p>
+                    <p>Colores: Negro, santinada vino y dorado</p>
+                    <p class="Precio">$175.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 7-->
+            <div class="box">
+                <img src="imagenes/Pr7.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Brown Aesthetic Set</h3>
+                    <p>Conjunto de camisa oversize a rayas café, con un top corto negro y Pantalón wide leg negro </p>
+                    <p>Colores: Café y negro</p>
+                    <p class="Precio">$135.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 8-->
+            <div class="box">
+                <img src="imagenes/Pr8.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Set Casual Día</h3>
+                    <p>Conjunto de camiseta crop fruncida blanca y jean wide leg azul oscuro con camisa oversize a rayas azul/blanco</p>
+                    <p>Colores: Blanco y azul</p>
+                    <p class="Precio">$160.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 9--> 
+            <div class="box">
+                <img src="imagenes/Pr9.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Fresh White & Blue</h3>
+                    <p>Conjunto de camisa oversize rayado, top corto y pantalón palazzo</p>
+                    <p>Colores: Blanco y azul</p>
+                    <p class="Precio">$160.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 10-->
+             <div class="box">
+                <img src="imagenes/Pr10.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Chocolate Elegance</h3>
+                    <p>Conjunto de blazer/chaqueta oversize, Top crop sin mangas, pantalón palazzo y Stilettos nude charol</p>
+                    <p>Colores: Chpcolate/marrón, crema/marfil y beige</p>
+                    <p class="Precio">$200.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 11-->
+            <div class="box">
+                <img src="imagenes/Pr11.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Vintage Champagne</h3>
+                    <p>Vestido midi estilo vintage/retro</p>
+                    <p>Color champagne/beige claro</p>
+                    <p class="Precio">$95.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 12-->
+              <div class="box">
+                <img src="imagenes/Pr12.jpg" alt="">
+                <div class="product-txt">
+                    <h3>White Fairy Dream</h3>
+                    <p>Vestido midi off-shoulder con volantes</p>
+                    <p>Color blanco</p>
+                    <p class="Precio">$115.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 13-->
+            <div class="box">
+                <img src="imagenes/Pr13.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Rouge Vintage</h3>
+                    <p>Vestido midi estilo vintage/retro</p>
+                    <p>Color vino/borgoña</p>
+                    <p class="Precio">$95.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 14-->
+            <div class="box">
+                <img src="imagenes/Pr14.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Rose Lace Dream</h3>
+                    <p>Vestido de fiesta hi-low con encaje</p>
+                    <p>Color rosa palo/blush</p>
+                    <p class="Precio">$95.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 15-->
+             <div class="box">
+                <img src="imagenes/Pr15.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Converse Chuck Taylor All Star High Top</h3>
+                    <p>Color negro con blanco</p>
+                    <p class="Precio">$220.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 16-->
+            <div class="box">
+                <img src="imagenes/Pr16.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Chain Platform Hi</h3>
+                    <p>Tenis bota con plataforma chunky</p>
+                    <p>Color negro con blanco</p>
+                    <p class="Precio">$100.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 17-->
+            <div class="box">
+                <img src="imagenes/Pr17.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Adidas Superstar Originalsi</h3>
+                    <p>Color blanco con rayas negras</p>
+                    <p class="Precio">$280.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 18-->
+            <div class="box">
+                <img src="imagenes/Pr18.jpg" alt="">
+                <div class="product-txt">
+                    <h3>White Grey Classic Low</h3>
+                    <p>Tenis casuales bajos sin marca</p>
+                    <p>Color blanco con gris</p>
+                    <p class="Precio">$80.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 19-->
+            <div class="box">
+                <img src="imagenes/Pr19.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Classic Black Notebook</h3>
+                    <p>Libreta/cuaderno tipo Moleskine</p>
+                    <p>Color negro</p>
+                    <p class="Precio">$70.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 20-->
+            <div class="box">
+                <img src="imagenes/Pr20.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Blue Spiral Classic</h3>
+                    <p>Cuaderno argollado/espiral</p>
+                    <p>Color azul marino</p>
+                    <p class="Precio">$20.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--Producto 21-->
+             <div class="box">
+                <img src="imagenes/Pr21.jpg" alt="">
+                <div class="product-txt">
+                    <h3>Pink Bow Journal</h3>
+                    <p>Cuaderno argollado estético "Coquette" y bolígrafo aesthetic</p>
+                    <p>Color de Cuaderno: Tapa blanca con ilustraciones de lazos rosas acuarela</p>
+                    <p>Color de bolígrafo: blanco/transparente</p>
+                    <p class="Precio">$20.000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <!--cierre de Productos-->
+
+        </div>
+
+
+    </Main>
+
+<!--Cierre de sección de los Productos-->
+
+    <footer class="footer">
+        <div class="footer-content container">
+            
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">Lorem</a></li>
+                </ul>
+            </div>
+
+             <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">Lorem</a></li>
+                </ul>
+            </div>
+
+             <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li><a href="#">Lorem</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+    <link rel="stylesheet" href="script.js">
+</body>
+</html>
