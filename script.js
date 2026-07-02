@@ -27,6 +27,7 @@ function cargarEventListeners() {
     elementos1.addEventListener('click', comprarElemento);
     carrito.addEventListener('click', eliminarElemento);
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+    document.getElementById('finalizar-compra').addEventListener('click', enviarWhatsApp);
 }
 
 function comprarElemento(e) {
@@ -107,4 +108,43 @@ function calcularTotal() {
     document.getElementById('subtotal-val').textContent = `$${subtotal.toLocaleString('es-CO')}`;
     document.getElementById('envio-val').textContent = `$${costoEnvio.toLocaleString('es-CO')}`;
     document.getElementById('total-val').textContent = `$${totalFinal.toLocaleString('es-CO')}`;
+}
+
+// Función para armar el pedido y redirigir a WhatsApp
+function enviarWhatsApp(e) {
+    e.preventDefault();
+
+    const filas = document.querySelectorAll('#lista-carrito tbody tr');
+    
+    if (filas.length === 0) {
+        alert('Tu carrito está vacío. Agrega productos antes de finalizar la compra.');
+        return;
+    }
+
+    const telefono = "573126817029"; 
+
+    let mensaje = "🛍️ *¡Hola! Me gustaría realizar el siguiente pedido:* \n\n";
+    mensaje += "*Detalle del pedido:*\n";
+
+    filas.forEach(fila => {
+        const nombre = fila.children[1].textContent.trim();
+        const precio = fila.children[2].textContent.trim();
+        mensaje += `• ${nombre} - ${precio}\n`;
+    });
+
+    const subtotal = document.getElementById('subtotal-val').textContent;
+    const envio = document.getElementById('envio-val').textContent;
+    const total = document.getElementById('total-val').textContent;
+
+    mensaje += "\n*Resumen de pago:*\n";
+    mensaje += `💵 Subtotal: ${subtotal}\n`;
+    mensaje += `🚚 Envío: ${envio}\n`;
+    mensaje += `💰 *Total a pagar: ${total}*\n\n`;
+    mensaje += "⏳ _Pedido reservado por 2 horas._";
+
+    const mensajeCodificado = encodeURIComponent(mensaje);
+    
+    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${mensajeCodificado}`;
+
+    window.open(urlWhatsApp, '_blank');
 }
