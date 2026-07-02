@@ -268,7 +268,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-.btn-3 {
+.btn-3, .btn-2 {
     background-color: #c77bd4;
     margin-top: 50px;
     display: inline-block;
@@ -280,11 +280,11 @@ h2 {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 2);
 }
 
-.btn-3:hover, .btn-1:hover {
+.btn-3:hover, .btn-2:hover, .btn-1:hover {
     background-color: purple;
 }
 
-.btn-3 {
+.btn-3, .btn-2 {
     margin: 0;
     padding: 8px 25px;
     border-radius: 5px;
