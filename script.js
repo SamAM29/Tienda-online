@@ -46,9 +46,24 @@ function leerDatosElemento(elemento) {
         titulo: elemento.querySelector('h3').textContent,
         precio: elemento.querySelector('.Precio').textContent,
         id: elemento.querySelector('a').getAttribute('data-id'), 
-        stock: parseInt(elemento.querySelector('a').getAttribute('data-stock')) || 99
-    };
-    insertarCarrito(infoElemento);
+        stockMax: parseInt(elemento.querySelector('a').getAttribute('data-stock'))
+    }
+
+    const stockVisual = document.getElementById(`stock-val-${infoElemento.id}`);
+    
+    if (stockVisual) {
+        let cantidadActualEnPantalla = parseInt(stockVisual.textContent);
+
+        if (cantidadActualEnPantalla > 0) {
+            
+            insertarCarrito(infoElemento); 
+
+            stockVisual.textContent = cantidadActualEnPantalla - 1;
+
+        } else {
+            alert(`¡Lo sentimos! El producto "${infoElemento.titulo}" ya no tiene stock disponible.`);
+        }
+    }
 }
 
 //Agregar al carrito y cambiar la cantidad
@@ -211,3 +226,27 @@ function enviarWhatsApp(e) {
         alert('Hubo un problema de conexión con el servidor local.');
     });
 }
+
+// Función para conectar con localhost y traer los stocks 
+function actualizarStocksDesdeServidor() {
+    fetch('http://localhost/Pagina%20Web/guardar_reserva.php')
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            data.stocks.forEach(producto => {
+                const elementoStock = document.getElementById(`stock-val-${producto.id}`);
+                if (elementoStock) {
+                    elementoStock.textContent = producto.stock;
+                    
+                    const boton = document.querySelector(`.agregar-carrito[data-id="${producto.id}"]`);
+                    if (boton) {
+                        boton.setAttribute('data-stock', producto.stock);
+                    }
+                }
+            });
+        }
+    })
+    .catch(error => console.error('Error al sincronizar stocks:', error));
+}
+
+document.addEventListener("DOMContentLoaded", actualizarStocksDesdeServidor);

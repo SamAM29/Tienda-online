@@ -6,6 +6,28 @@ $database = "tienda_tick";
 
 $conn = new mysqli($host, $user, $password, $database);
 
+// Stocks cantidad
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql = "SELECT id, stock FROM productos";
+    $result = $conn->query($sql);
+    $stocks = [];
+    
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $stocks[] = [
+                "id" => intval($row['id']),
+                "stock" => intval($row['stock'])
+            ];
+        }
+        echo json_encode(["status" => "success", "stocks" => $stocks]);
+    } else {
+        echo json_encode(["status" => "error", "message" => $conn->error]);
+    }
+    $conn->close();
+    exit;
+}
+// Stocks cantidad
+
 if ($conn->connect_error) {
     die(json_encode(["status" => "error", "message" => "Fallo de conexión: " . $conn->connect_error]));
 }

@@ -9,7 +9,7 @@ Create table if not exists productos (
     descripción text
 );
 
-insert into productos (nombre, precio, stock, descripción) values
+insert into productos (nombre, Precio, stock, descripción) values
 ('Camiseta Arena esencial', 35000, 30, 'Camisa sencilla de cuello redondo de color beige arena'),
 ('Camisa Ébano Versátil', 50000, 25, 'Camisa básica de cuello redondo con camisa de manga corta con botones y cuello sport, colores negro y blanco'),
 ('Camisa Resort Grafito', 65000, 25, 'Camisa manga corta con cuello camp de colores blanco y gris oscuro'),
@@ -32,7 +32,7 @@ insert into productos (nombre, precio, stock, descripción) values
 ('Blue Spiral Classic', 20000, 20, 'Cuaderno argollado/espiral azul marino'),
 ('Pink Bow Journal', 20000, 15, 'Cuaderno argollado estético Coquette y bolígrafo aesthetic.');
 
-Create table if not exists reservas_perdidos (
+Create table if not exists reservas_pedidos (
     id int AUTO_INCREMENT primary key,
     producto_id int,
     cantidad int not null,
