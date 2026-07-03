@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap');
 
 *{
@@ -36,6 +40,13 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;        /* Hace que el elemento se congele en la pantalla */
+    top: 0;                 /* Lo pega completamente al borde superior */
+    left: 0;                /* Lo alinea desde la izquierda */
+    width: 100%;            /* Asegura que ocupe todo el ancho de la pantalla */
+    z-index: 1000;          /* Capa flotante: evita que los productos pasen por encima del menú */
+    background-color: #ffffff; /* Opcional: ponle el color de tu fondo para que no sea transparente al bajar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: una sombra sutil para separarlo del contenido */
 }
 
 .Logo {
