@@ -31,7 +31,7 @@ Para correr este proyecto en tu computadora, sigue estos pasos:
 
 `DELIMITER $$
 
-    DROP EVENT IF EXISTS restaurar_stock_expirado$$`
+    DROP EVENT IF EXISTS restaurar_stock_expirado$$
 
     CREATE EVENT restaurar_stock_expirado
     ON SCHEDULE EVERY 1 MINUTE
