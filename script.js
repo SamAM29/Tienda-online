@@ -8,14 +8,13 @@ loadMoreBtn.onclick = () => {
 
     for(var i = currentItem; i < currentItem + 4; i++) {
         if (boxes[i]){
-        boxes[i].style.display = 'inline-block';
+            boxes[i].style.display = 'inline-block';
         }
     }
     currentItem += 4;
     if (currentItem >= boxes.length)  {
         loadMoreBtn.style.display = 'none';
     }
-
 };
 
 //Carrito
@@ -46,51 +45,56 @@ function leerDatosElemento(elemento) {
         imagen: elemento.querySelector('img').src,
         titulo: elemento.querySelector('h3').textContent,
         precio: elemento.querySelector('.Precio').textContent,
-        id: elemento.querySelector('a').getAttribute('data-id')
+        id: elemento.querySelector('a').getAttribute('data-id'), 
+        stock: parseInt(elemento.querySelector('a').getAttribute('data-stock')) || 99
     };
     insertarCarrito(infoElemento);
 }
 
 //Agregar al carrito y cambiar la cantidad
 function insertarCarrito(elemento) {
-  const productosEnCarrito = document.querySelectorAll('#lista-carrito tbody tr');
-  let existe = false;
+    const productosEnCarrito = document.querySelectorAll('#lista-carrito tbody tr');
+    let existe = false;
 
-  productosEnCarrito.forEach(fila => {
-    const botonBorrar = fila.querySelector('.borrar');
-    if (botonBorrar && botonBorrar.getAttribute('data-id') === elemento.id) {
-        existe = true;
+    productosEnCarrito.forEach(fila => {
+        const botonBorrar = fila.querySelector('.borrar');
+        if (botonBorrar && botonBorrar.getAttribute('data-id') === elemento.id) {
+            existe = true;
 
-        let cantidadInput = fila.children[3].querySelector('.cantidad-input');
-        cantidadInput.value = parseInt(cantidadInput.value) +1;
-    }
-  });
+            let cantidadInput = fila.children[3].querySelector('.cantidad-input');
+            if (parseInt(cantidadInput.value) >= elemento.stock) {
+                alert(`¡Lo sentimos! Solo quedan ${elemento.stock} unidades disponibles de "${elemento.titulo}".`);
+                return;
+            }
+            
+            cantidadInput.value = parseInt(cantidadInput.value) + 1;
+        }
+    });
 
-  if (!existe) {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-    <td>
-        <img src="${elemento.imagen}" width=100 height=150px >
-    </td>
-    <td>
-        ${elemento.titulo}
-    </td>
+    if (!existe) { 
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+            <img src="${elemento.imagen}" width=100 height=150px >
+        </td>
+        <td>
+            ${elemento.titulo}
+        </td>
         <td class="precio-base" data-precio="${elemento.precio}"> ${elemento.precio}
-    </td>
-    <td>
-        <input type="number" class="cantidad-input" value="1" min="1" style="width: 50px; text-align: center;">
-    </td>
-    <td>
-        <a href="#" class="borrar" data-id="${elemento.id}">X</a>
-    </td>
-    `;
-    lista.appendChild(row);
-    row.querySelector('.cantidad-input').addEventListener('change', calcularTotal);
+        </td>
+        <td>
+            <input type="number" class="cantidad-input" value="1" min="1" max="${elemento.stock}" style="width: 50px; text-align: center;">
+        </td>
+        <td>
+            <a href="#" class="borrar" data-id="${elemento.id}">X</a>
+        </td>
+        `;
+        lista.appendChild(row);
+        row.querySelector('.cantidad-input').addEventListener('change', calcularTotal);
     }
     
     calcularTotal();
 }
-
 
 function eliminarElemento(e) {
     e.preventDefault();
@@ -112,7 +116,7 @@ function vaciarCarrito() {
     return false;
 }
 
-// Nueva función para calcular los totales de la compra
+// función para calcular los totales de la compra
 function calcularTotal() {
     const filas = document.querySelectorAll('#lista-carrito tbody tr');
     let subtotal = 0;
@@ -153,7 +157,7 @@ function enviarWhatsApp(e) {
     filas.forEach(fila => {
         const nombre = fila.children[1].textContent.trim();
         const precio = fila.querySelector('.precio-base').textContent.trim();
-        const cantidad = fila.querySelector('.cantidad-input'). value;
+        const cantidad = fila.querySelector('.cantidad-input').value; // Removido el espacio innecesario
         mensaje += `• ${cantidad}x ${nombre} (${precio} c/u)\n`;
     });
 
@@ -164,7 +168,7 @@ function enviarWhatsApp(e) {
     mensaje += "\n*Resumen de pago:*\n";
     mensaje += `💵 Subtotal: ${subtotal}\n`;
     mensaje += `🚚 Envío: ${envio}\n`;
-    mensaje += `💰 *Total a pagar: ${total}*\n\n`;
+    mensaje += `💰 *Total a pagar: ${total}*\\n\\n`;
     mensaje += "⏳ _Pedido reservado por 2 horas._";
 
     const mensajeCodificado = encodeURIComponent(mensaje);
