@@ -171,9 +171,43 @@ function enviarWhatsApp(e) {
     mensaje += `💰 *Total a pagar: ${total}*\\n\\n`;
     mensaje += "⏳ _Pedido reservado por 2 horas._";
 
-    const mensajeCodificado = encodeURIComponent(mensaje);
-    
-    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${mensajeCodificado}`;
+    // Conexión con el Backend    
+    const productosDatos = [];
+    filas.forEach(fila => {
+        const id = fila.querySelector('.borrar').getAttribute('data-id');
+        const cantidad = parseInt(fila.querySelector('.cantidad-input').value) || 1;
+        productosDatos.push({ id: id, cantidad: cantidad });
+    });
 
-    window.open(urlWhatsApp, '_blank');
+    document.getElementById('finalizar-compra').style.pointerEvents = 'none';
+    document.getElementById('finalizar-compra').textContent = 'Procesando...';
+
+    fetch('http://localhost/Pagina%20Web/guardar_reserva.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ productos: productosDatos })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('finalizar-compra').style.pointerEvents = 'auto';
+        document.getElementById('finalizar-compra').textContent = 'Finalizar Compra';
+
+        if (data.status === 'success') {
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${mensajeCodificado}`;
+            window.open(urlWhatsApp, '_blank');
+            
+            vaciarCarrito();
+        } else {
+            alert('Error en la reserva: ' + data.message);
+        }
+    })
+    .catch(error => {
+        document.getElementById('finalizar-compra').style.pointerEvents = 'auto';
+        document.getElementById('finalizar-compra').textContent = 'Finalizar Compra';
+        console.error('Error:', error);
+        alert('Hubo un problema de conexión con el servidor local.');
+    });
 }

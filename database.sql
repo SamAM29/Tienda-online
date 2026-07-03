@@ -37,6 +37,6 @@ Create table if not exists reservas_perdidos (
     producto_id int,
     cantidad int not null,
     fecha_reserva datetime default current_timestamp,
-    estado varchar(20) default 'reservado'
-    foreign key (producto_id) references producto(id)
-)
+    estado varchar(20) default 'reservado',
+    foreign key (producto_id) references productos(id)
+);
