@@ -40,12 +40,12 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;        /* Hace que el elemento se congele en la pantalla */
-    top: 0;                 /* Lo pega completamente al borde superior */
-    left: 0;                /* Lo alinea desde la izquierda */
-    width: 100%;            /* Asegura que ocupe todo el ancho de la pantalla */
-    z-index: 1000;          /* Capa flotante: evita que los productos pasen por encima del menú */
-    background-color: #ffffff; /* Opcional: ponle el color de tu fondo para que no sea transparente al bajar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: una sombra sutil para separarlo del contenido */
 }
 
@@ -158,16 +158,6 @@ span {
     display: flex;
 }
 
-.btn-1 {
-    display: inline-block;
-    padding: 13px 25px;
-    background-color: violet;
-    margin-right: 20px;
-    color: #eff3f4;
-    text-transform: capitalize;
-    margin-bottom: 100px;
-}
-
 .header-img {
     flex-basis: 50%;
     text-align: center;
@@ -210,10 +200,6 @@ span {
 .info-txt h3 {
     color: #eff3f4;
     font-size: 20px;
-}
-
-.info-txt a{
-    color: #eff3f4;
 }
 
 .info-img {
@@ -291,7 +277,7 @@ h2 {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 2);
 }
 
-.btn-3:hover, .btn-2:hover, .btn-1:hover {
+.btn-3:hover, .btn-2:hover {
     background-color: purple;
 }
 
@@ -382,10 +368,6 @@ h2 {
 
     .butons {
         justify-content: center;
-    }
-
-    .btn-1 {
-        margin-bottom: 0;
     }
 
     .header-img {
